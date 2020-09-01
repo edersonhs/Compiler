@@ -1,2 +1,2 @@
 # Compilador
- Projeto desenvolvido na matéria de Compiladores no Curso de CIências da Computação da Unifacvest
+ Projeto desenvolvido na matéria de Compiladores durante o Curso de Ciências da Computação da Unifacvest
