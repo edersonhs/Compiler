@@ -1,0 +1,4 @@
+hame teste ;
+funcao public ok ( ) {
+int x = 10 10,0 + a ++
+}
