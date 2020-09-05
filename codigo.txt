@@ -1,4 +1,5 @@
-hame teste ;
-funcao public ok ( ) {
-int x = 10 10,0 + a ++
+public int main ( string [ ] ) {
+// comentario que não deve ser analisado
+x = 10 ;
 }
+
