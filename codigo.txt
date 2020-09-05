@@ -1,5 +1,4 @@
 public int main ( string [ ] ) {
-// comentario que não deve ser analisado
-x = 10 ;
+x = 10 ; // comentario que não deve ser analisado
 }
 
