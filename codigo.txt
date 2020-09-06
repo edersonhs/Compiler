@@ -1,9 +1,9 @@
 public int main ( string [ ] ) {
-x = 10 ; // comentario que não deve ser analisado
+x = 10 ; //      comentario que não deve ser analisado
 }
 
 teste 				/* aaa
-teste
+  teste
 teste
 teste
 aa */

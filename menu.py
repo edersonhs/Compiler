@@ -37,7 +37,7 @@ def menu(*opcoes):
             criarArquivo('log.txt')  # Reescrevendo um arquivo de log vazio para não concatenar com o log anterior
             if arquivoExiste(nome_arquivo) and arquivoExiste(nome_arquivo_log):
                 print(f'{cores["verde"]}{nome_arquivo} e {nome_arquivo_log} encontrados com sucesso!\n')
-                analisador([word.replace('\n', '') for word in lerArquivo(nome_arquivo)])
+                analisador([word.replace('\n', '').strip() for word in lerArquivo(nome_arquivo)])
                 print(f'{cores["branco"]}LOG DO ANALISADOR LÉXICO:')
                 mostraLog()
                 input(f'\n{cores["branco"]}Pressione ENTER para continuar...')
