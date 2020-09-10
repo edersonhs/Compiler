@@ -2,6 +2,16 @@ from log import *
 from linguagem import *
 
 
+def deep_analyzer(linha, palavra):   # Caracter por caracter
+    # for indice, caractere in enumerate(palavra):
+    if str(palavra[0]).isnumeric():
+        escreveLog(linha, f'{cores["vermelho"]}INVALIDO', palavra,
+                   'O primeiro caractere de um identificado não pode ser um número.')
+    else:
+        if str(palavra).isalpha():
+            escreveLog(linha, 'IDENTIFICADOR', palavra)
+
+
 def analisador(codigo):
     ignore = False
     for linha, conteudo in enumerate(codigo):
@@ -32,5 +42,6 @@ def analisador(codigo):
                     if palavra == comentario_inicio:   # Comentario de mais de uma linha
                         ignore = True
                     if len(palavra) != 0 and palavra not in palavras_reservadas and \
-                            palavra not in delimitadores and palavra not in operadores:
-                        escreveLog(linha, 'IDENTIFICADOR', palavra)
+                            palavra not in delimitadores and palavra not in operadores:   # Identificador
+                        deep_analyzer(linha, palavra)
+                        # escreveLog(linha, 'IDENTIFICADOR', palavra)

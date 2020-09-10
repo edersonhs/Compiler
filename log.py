@@ -15,15 +15,20 @@ nome_arquivo_log = 'log.txt'
 criarArquivo(nome_arquivo_log)
 
 
-def escreveLog(linha, tipo, conteudo):
+def escreveLog(linha, tipo, conteudo, motivo=''):
     try:
         log = open(nome_arquivo_log, 'at')
     except Exception:
         print(f'{cores["vermelho"]}Houve um ERRO ao abrir o arquivo de log!')
     else:
         try:
-            log.writelines(f'{cores["roxo"]}LINHA {linha+1}: {cores["branco"]}({cores["amarelo"]}{tipo}'
-                           f'{cores["branco"]}: {cores["azul"]}{conteudo}{cores["branco"]})\n')
+            text = (f'{cores["roxo"]}LINHA {linha+1}: {cores["branco"]}({cores["amarelo"]}{tipo}'
+                    f'{cores["branco"]}: {cores["azul"]}{conteudo}{cores["branco"]})')
+
+            if len(motivo) == 0:
+                log.writelines(f'{text:<90} {cores["verde"]}✔{motivo}\n')
+            else:
+                log.writelines(f'{text:<97} {cores["vermelho"]}✘ {motivo}\n')
         except Exception:
             print(f'{cores["vermelho"]}Houve um ERRO ao escrever os dados no arquivo de Log!')
         else:
