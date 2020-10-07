@@ -5,17 +5,10 @@ ignore = False
 comment = False
 
 
-def deep_analyzer(linha, palavra):   # Caracter por caracter
+def deep_analyzer(linha, palavra):   # Analisa caractere por caractere
     global ignore
     global comment
-    """
-    if str(palavra[0]).isnumeric():
-        escreveLog(linha, f'{cores["vermelho"]}INVALIDO', palavra,
-                   'O primeiro caractere de um identificado não pode ser um número.')
-    else:
-        if str(palavra).isalpha():
-            escreveLog(linha, 'IDENTIFICADOR', palavra)
-    """
+
     aux = ''
     caractere = 0
     if comentario_fim in palavra:
@@ -29,9 +22,13 @@ def deep_analyzer(linha, palavra):   # Caracter por caracter
             break
 
     if len(aux.split()) != 0:
-        escreveLog(linha, 'IDENTIFICADOR', aux)
+        if str(aux[0]).isnumeric():
+            escreveLog(linha, f'{cores["vermelho"]}INVALIDO', aux,
+                       'O primeiro caractere de um identificador não pode ser um número.')
+        else:   # Tratando e ignorando possiveis espaços
+            escreveLog(linha, 'IDENTIFICADOR', aux)
 
-    if caractere >= len(palavra):   # Se já tiver percorrido todo o indice da string, sai da função.
+    if caractere >= len(palavra):   # Se o contador já tiver percorrido todo o indice da string, sai da função.
         return
     if caractere+2 <= len(palavra):
         if palavra[caractere:caractere+2] == comentario:
@@ -63,6 +60,8 @@ def analisador(codigo):
                         escreveLog(linha, 'REAL', palavra)
                     except Exception:
                         pass
+                if palavra == '"':
+                    palavra = str(palavra)
                 if type(palavra) == str:
                     if palavra in palavras_reservadas:
                         escreveLog(linha, 'PALAVRA_RESERVADA', palavra)
