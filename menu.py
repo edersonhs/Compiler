@@ -1,5 +1,6 @@
 from scanner import *
 from time import sleep
+from os import system, name
 
 cores = {
     'amarelo': '\033[1;33m',
@@ -14,7 +15,7 @@ cores = {
 
 def menu(*opcoes):
     while True:
-        print("\x1b[2J\x1b[1;1H")
+        system('cls' if name == 'nt' else 'clear')
         opcao = 0
         print(f'{cores["amarelo"]}Selecione uma opção:')
         for nro, conteudo in enumerate(opcoes):
@@ -32,13 +33,13 @@ def menu(*opcoes):
                   f'enter para tentar novamente...')
 
         if opcao == 1:
-            print("\x1b[2J\x1b[1;1H")
+            system('cls' if name == 'nt' else 'clear')
             nome_arquivo = 'codigo.txt'
             criarArquivo('log.txt')  # Reescrevendo um arquivo de log vazio para não concatenar com o log anterior
             if arquivoExiste(nome_arquivo) and arquivoExiste(nome_arquivo_log):
                 print(f'{cores["verde"]}{nome_arquivo} e {nome_arquivo_log} encontrados com sucesso!\n')
-                analisador([word.replace('\n', '').strip() for word in lerArquivo(nome_arquivo)])
-                print(f'{cores["branco"]}LOG DO ANALISADOR LÉXICO:')
+                analisador([word for word in lerArquivo(nome_arquivo)])
+                print(f'\n{cores["branco"]}LOG DO ANALISADOR LÉXICO:')
                 mostraLog()
                 input(f'\n{cores["branco"]}Pressione ENTER para continuar...')
             else:
@@ -57,5 +58,5 @@ def menu(*opcoes):
                     else:
                         break
         elif opcao == 2:
-            print("\x1b[2J\x1b[1;1H")
+            system('cls' if name == 'nt' else 'clear')
             exit()

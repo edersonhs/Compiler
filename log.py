@@ -26,11 +26,11 @@ def escreveLog(linha, tipo, conteudo, motivo=''):
                     f'{cores["branco"]}: {cores["azul"]}{conteudo}{cores["branco"]})')
 
             if len(motivo) == 0:
-                log.writelines(f'{text:<90} {cores["verde"]}✔{motivo}\n')
+                log.writelines(f'{text}\n')
             else:
-                log.writelines(f'{text:<97} {cores["vermelho"]}✘ {motivo}\n')
+                log.writelines(f'{text} ERRO: {motivo}\n')
         except Exception:
-            print(f'{cores["vermelho"]}Houve um ERRO ao escrever os dados no arquivo de Log!')
+             print(f'{cores["vermelho"]}Houve um ERRO ao escrever os dados no arquivo de Log!')
         else:
             log.close()
 
