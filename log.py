@@ -1,7 +1,7 @@
-from arquivo import *
+from archives import criarArquivo
 from colors import colors
 
-nome_arquivo_log = 'log.txt'
+nome_arquivo_log = './archives/log.txt'
 criarArquivo(nome_arquivo_log)
 
 

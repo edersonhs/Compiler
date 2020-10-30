@@ -1,17 +1,9 @@
-from scanner import *
+from scanner import analisador
+from log import nome_arquivo_log, mostraLog
+from archives import *
 from colors import colors
 from time import sleep
 from os import system, name   # Limpar a tela
-
-colors = {
-    'amarelo': '\033[1;33m',
-    'roxo': '\033[1;35m',
-    'vermelho': '\033[1;31m',
-    'azul': '\033[1;34m',
-    'azulCiano': '\033[1;36m',
-    'verde': '\033[1;32m',
-    'branco': '\033[1;37m'
-}
 
 
 def menu(*opcoes):
@@ -35,8 +27,8 @@ def menu(*opcoes):
 
         if opcao == 1:
             system('cls' if name == 'nt' else 'clear')
-            nome_arquivo = 'codigo.txt'
-            criarArquivo('log.txt')  # Reescrevendo um arquivo de log vazio para não concatenar com o log anterior
+            nome_arquivo = './archives/codigo.txt'
+            criarArquivo('./archives/log.txt')  # Reescrevendo um arquivo de log vazio para não concatenar com o log anterior
             if arquivoExiste(nome_arquivo) and arquivoExiste(nome_arquivo_log):
                 print(f'{colors["verde"]}{nome_arquivo} e {nome_arquivo_log} encontrados com sucesso!\n')
                 analisador([word for word in lerArquivo(nome_arquivo)])
@@ -62,3 +54,6 @@ def menu(*opcoes):
         elif opcao == 2:
             system('cls' if name == 'nt' else 'clear')
             exit()
+
+
+menu('Analisador Léxico', 'Sair do Sistema')

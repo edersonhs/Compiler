@@ -1,5 +1,5 @@
-from log import *
-from linguagem import *
+from log import escreveLog
+from language import *
 from colors import colors
 
 ignore = False
