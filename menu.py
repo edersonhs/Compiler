@@ -48,10 +48,11 @@ def menu(*opcoes):
                     try:
                         opcao_temp = str(input(f'{cores["branco"]}Deseja criar o arquivo? [S/N] ')).upper()[0]
                         if opcao_temp == 'S':
+                            print('\n')
                             criarArquivo(nome_arquivo)
                             input(f'{cores["branco"]}Pressione enter para continuar...')
                         else:
-                            print(f'{cores["verde"]}Beleza! Retornando ao menu principal...')
+                            print(f'\n{cores["verde"]}Beleza! Retornando ao menu principal...')
                             sleep(2)
                     except Exception:
                         print(f'{cores["vermelho"]}ERRO: opção invalida. Digite uma opção valida!')
