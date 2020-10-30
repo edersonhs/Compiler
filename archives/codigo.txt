@@ -1,3 +1,4 @@
-print ( " " ) :
-
+print(){
+um = 1//coment
+}
 test = 0
