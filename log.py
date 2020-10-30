@@ -1,15 +1,5 @@
 from arquivo import *
-
-cores = {
-    'amarelo': '\033[1;33m',
-    'roxo': '\033[1;35m',
-    'vermelho': '\033[1;31m',
-    'azul': '\033[1;34m',
-    'azulCiano': '\033[1;36m',
-    'verde': '\033[1;32m',
-    'branco': '\033[1;37m'
-}
-
+from colors import colors
 
 nome_arquivo_log = 'log.txt'
 criarArquivo(nome_arquivo_log)
@@ -19,18 +9,18 @@ def escreveLog(linha, tipo, conteudo, motivo=''):
     try:
         log = open(nome_arquivo_log, 'at')
     except Exception:
-        print(f'{cores["vermelho"]}Houve um ERRO ao abrir o arquivo de log!')
+        print(f'{colors["vermelho"]}Houve um ERRO ao abrir o arquivo de log!')
     else:
         try:
-            text = (f'{cores["roxo"]}LINHA {linha+1}: {cores["branco"]}({cores["amarelo"]}{tipo}'
-                    f'{cores["branco"]}: {cores["azul"]}{conteudo}{cores["branco"]})')
+            text = (f'{colors["roxo"]}LINHA {linha+1}: {colors["branco"]}({colors["amarelo"]}{tipo}'
+                    f'{colors["branco"]}: {colors["azul"]}{conteudo}{colors["branco"]})')
 
             if len(motivo) == 0:
                 log.writelines(f'{text}\n')
             else:
                 log.writelines(f'{text} ERRO: {motivo}\n')
         except Exception:
-             print(f'{cores["vermelho"]}Houve um ERRO ao escrever os dados no arquivo de Log!')
+             print(f'{colors["vermelho"]}Houve um ERRO ao escrever os dados no arquivo de Log!')
         else:
             log.close()
 
@@ -39,7 +29,7 @@ def mostraLog():
     try:
         log = open(nome_arquivo_log, 'rt')
     except Exception:
-        print(f'{cores["vermelho"]}ERRO ao ler o Log!')
+        print(f'{colors["vermelho"]}ERRO ao ler o Log!')
     else:
         for linha in log:
             print(linha.replace('\n', ''))

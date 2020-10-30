@@ -1,13 +1,4 @@
-cores = {
-    'amarelo': '\033[1;33m',
-    'roxo': '\033[1;35m',
-    'vermelho': '\033[1;31m',
-    'azul': '\033[1;34m',
-    'azulCiano': '\033[1;36m',
-    'verde': '\033[1;32m',
-    'branco': '\033[1;37m'
-}
-
+from colors import colors
 
 def arquivoExiste(nome):
     try:
@@ -28,21 +19,21 @@ def criarArquivo(nome):
         a.close()
     except Exception:
         if nome == 'log.txt':
-            print(f'{cores["vermelho"]}Houve um ERRO ao criar o arquivo {nome}.')
+            print(f'{colors["vermelho"]}Houve um ERRO ao criar o arquivo {nome}.')
         elif nome == 'codigo.txt':
-            print(f'{cores["vermelho"]}Houve um ERRO na criação do arquivo {nome}!')
+            print(f'{colors["vermelho"]}Houve um ERRO na criação do arquivo {nome}!')
     else:
         if nome == 'log.txt':
             pass
         else:
-            print(f'{cores["verde"]}Arquivo {nome} criado com sucesso!')
+            print(f'{colors["verde"]}Arquivo {nome} criado com sucesso!')
 
 
 def lerArquivo(nome):
     try:
         a = open(nome, 'rt')
     except Exception:
-        print(f'{cores["vermelho"]}ERRO ao ler o arquivo!')
+        print(f'{colors["vermelho"]}ERRO ao ler o arquivo!')
     else:
         dado = list()
         for linha in a:     # Para cada linha em arquivo

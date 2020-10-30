@@ -1,5 +1,6 @@
 from log import *
 from linguagem import *
+from colors import colors
 
 ignore = False
 comment = False
@@ -23,7 +24,7 @@ def deep_analyzer(linha, palavra):   # Analisa caractere por caractere
 
     if len(aux.split()) != 0:
         if str(aux[0]).isnumeric():
-            escreveLog(linha, f'{cores["vermelho"]}INVALIDO', aux,
+            escreveLog(linha, f'{colors["vermelho"]}INVALIDO', aux,
                        'O primeiro caractere de um identificador não pode ser um número.')
         else:   # Tratando e ignorando possiveis espaços
             escreveLog(linha, 'IDENTIFICADOR', aux)
