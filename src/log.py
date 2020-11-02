@@ -12,13 +12,13 @@ def escreveLog(linha, tipo, conteudo, motivo=''):
         print(f'{colors["vermelho"]}Houve um ERRO ao abrir o arquivo de log!')
     else:
         try:
-            text = (f'{colors["roxo"]}LINHA {linha+1}: {colors["branco"]}({colors["amarelo"]}{tipo}'
-                    f'{colors["branco"]}: {colors["azul"]}{conteudo}{colors["branco"]})')
+            text = (f'{colors["amarelo"]}LINHA {linha+1}: {colors["branco"]}({colors["verde"]}{tipo}'
+                    f'{colors["branco"]}: {colors["roxo"]}{conteudo}{colors["branco"]})')
 
             if len(motivo) == 0:
-                log.writelines(f'{text}\n')
+                log.writelines(f'{text:<91} {colors["verde"]} OK\n')
             else:
-                log.writelines(f'{text} ERRO: {motivo}\n')
+                log.writelines(f'{text:<98} {colors["vermelho"]}ERRO: {colors["branco"]}{motivo}\n')
         except Exception:
              print(f'{colors["vermelho"]}Houve um ERRO ao escrever os dados no arquivo de Log!')
         else:

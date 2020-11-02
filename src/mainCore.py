@@ -2,8 +2,9 @@ from scanner import analisador
 from log import nome_arquivo_log, mostraLog
 from archives import *
 from colors import colors
-from time import sleep
+from time import sleep   # Intervalo
 from os import system, name   # Limpar a tela
+from subprocess import Popen   # Para abrir o notepad
 
 
 def menu(*opcoes):
@@ -22,13 +23,14 @@ def menu(*opcoes):
                 else:
                     break
         except Exception:
-            input(f'{colors["vermelho"]}ERRO: opção invalida. Digite um número valido!\n{colors["branco"]} Pressione '
+            input(f'{colors["vermelho"]}ERRO: opção invalida. Digite um número valido!\n{colors["branco"]}Pressione '
                   f'enter para tentar novamente...')
 
         if opcao == 1:
             system('cls' if name == 'nt' else 'clear')
             nome_arquivo = './archives/codigo.txt'
             criarArquivo('./archives/log.txt')  # Reescrevendo um arquivo de log vazio para não concatenar com o log anterior
+
             if arquivoExiste(nome_arquivo) and arquivoExiste(nome_arquivo_log):
                 print(f'{colors["verde"]}{nome_arquivo} e {nome_arquivo_log} encontrados com sucesso!\n')
                 analisador([word for word in lerArquivo(nome_arquivo)])
@@ -40,6 +42,7 @@ def menu(*opcoes):
                 while True:
                     try:
                         opcao_temp = str(input(f'{colors["branco"]}Deseja criar o arquivo? [S/N] ')).upper()[0]
+                        
                         if opcao_temp == 'S':
                             print('\n')
                             criarArquivo(nome_arquivo)
@@ -52,8 +55,10 @@ def menu(*opcoes):
                     else:
                         break
         elif opcao == 2:
+            Popen(["notepad","./archives/codigo.txt"])
+        elif opcao == 3:
             system('cls' if name == 'nt' else 'clear')
             exit()
 
 
-menu('Analisador Léxico', 'Sair do Sistema')
+menu('Analisador Léxico', 'Editar o Código', 'Sair do Sistema')
