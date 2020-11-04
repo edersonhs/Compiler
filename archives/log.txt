@@ -1,5 +1,14 @@
-[1;33mLINHA 1: [1;37m([1;32m[1;31mINVALIDO[1;37m: [1;35m10temp[1;37m)                       [1;31mERRO: [1;37mO primeiro caractere de um identificador não pode ser um número.
+[1;33mLINHA 1: [1;37m([1;32mIDENTIFICADOR[1;37m: [1;35m10temp[1;37m)                  [1;32m OK
 [1;33mLINHA 1: [1;37m([1;32mOPERADOR[1;37m: [1;35m=[1;37m)                            [1;32m OK
 [1;33mLINHA 1: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m'[1;37m)                         [1;32m OK
+[1;33mLINHA 1: [1;37m([1;32mIDENTIFICADOR[1;37m: [1;35maspasSimples[1;37m)            [1;32m OK
 [1;33mLINHA 1: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m'[1;37m)                         [1;32m OK
+[1;33mLINHA 1: [1;37m([1;32mIDENTIFICADOR[1;37m: [1;35mtest[1;37m)                    [1;32m OK
 [1;33mLINHA 2: [1;37m([1;32mIDENTIFICADOR[1;37m: [1;35mvariavel[1;37m)                [1;32m OK
+[1;33mLINHA 2: [1;37m([1;32mOPERADOR[1;37m: [1;35m=[1;37m)                            [1;32m OK
+[1;33mLINHA 2: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m"[1;37m)                         [1;32m OK
+[1;33mLINHA 2: [1;37m([1;32mIDENTIFICADOR[1;37m: [1;35mteste[1;37m)                   [1;32m OK
+[1;33mLINHA 2: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m"[1;37m)                         [1;32m OK
+[1;33mLINHA 2: [1;37m([1;32mPALAVRA_RESERVADA[1;37m: [1;35mprint[1;37m)               [1;32m OK
+[1;33mLINHA 2: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m([1;37m)                         [1;32m OK
+[1;33mLINHA 2: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m)[1;37m)                         [1;32m OK

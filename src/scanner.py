@@ -7,78 +7,57 @@ comment = False
 count = 0   # Controle das aspas
 
 
-def deep_analyzer(linha, palavra):   # Analisa caractere por caractere
+def deep_analyzer(linha, conteudo):   # Analisa caractere por caractere
     global ignore
     global comment
     global count
 
     aux = ''
-    caractere = 0
-    print(palavra)
-    if comentario_fim in palavra:   # Fim comentario de mais de uma linha
-        escreveLog(linha, 'DELIMITADOR', comentario_fim)
-        caractere = palavra.find(comentario_fim) + 2
+    indice = 0
 
-    for caractere in range(caractere, len(palavra)):
-        
-        if palavra[caractere].isalpha() or palavra[caractere].isdigit():
-            aux += palavra[caractere]
+    while indice < len(conteudo):
+        if conteudo[indice].isalpha() or conteudo[indice].isdigit():
+            aux += conteudo[indice]
         else:
-            break
-
-    if len(aux.split()) != 0:
-        try:
-            aux = int(aux)
-            escreveLog(linha, 'INTEIRO', aux)
-        except Exception:
             try:
-                aux = float(aux)
-                escreveLog(linha, 'REAL', aux)
-            except Exception:
-                if str(aux[0]).isnumeric():
-                    escreveLog(linha, f'{colors["vermelho"]}INVALIDO', aux,
-                            'O primeiro caractere de um identificador não pode ser um número.')
-                elif aux in palavras_reservadas:
-                    escreveLog(linha, 'PALAVRA_RESERVADA', aux)
-                elif aux in operadores:
-                    escreveLog(linha, 'OPERADOR', aux)
-                else:
-                    escreveLog(linha, 'IDENTIFICADOR', aux)
+                inteiro = int(aux)
+                escreveLog(linha, 'INTEIRO', aux)
+            except:
+                try:
+                    real = float(aux)
+                    escreveLog(linha, 'REAL', aux)
+                except:
+                    if aux in palavras_reservadas:
+                        escreveLog(linha, 'PALAVRA_RESERVADA', aux)
+                        aux = ''
+                    else:
+                        if len(aux) != 0:
+                            escreveLog(linha, 'IDENTIFICADOR', aux)
+                            aux = ''
+                    if conteudo[indice:indice+2] in operadores:
+                        escreveLog(linha, 'OPERADOR', conteudo[indice:indice+2])
+                        indice += 2
+                        continue
+                    elif conteudo[indice] in operadores and conteudo[indice:indice+2] not in delimitadores:
+                        escreveLog(linha, 'OPERADOR', conteudo[indice])
+                    if conteudo[indice:indice+2] in delimitadores:
+                        escreveLog(linha, 'DELIMITADOR', conteudo[indice:indice+2])
+                        indice += 2
+                        continue
+                    elif conteudo[indice] in delimitadores and conteudo[indice:indice+2] not in operadores:
+                        escreveLog(linha, 'DELIMITADOR', conteudo[indice])
+        indice += 1
 
-    if caractere >= len(palavra):   # Se o contador já tiver percorrido todo o indice da string, sai da função.
-        return
-
-    # ASPAS - Controle
-    if (aspas in palavra[caractere] and count == 0) or (aspasSimples in palavra[caractere] and count == 0):
-        escreveLog(linha, 'DELIMITADOR', aspas if aspas in palavra[caractere] else aspasSimples)
-        # caractere = palavra.find(aspas if aspas in palavra[caractere] else aspasSimples) + 1
-        count += 1
-        ignore = True
-
-    if (aspas in palavra[caractere] and count == 1) or (aspasSimples in palavra[caractere] and count == 1):
-        escreveLog(linha, 'DELIMITADOR', aspas if aspas in palavra[caractere] else aspasSimples)
-        # caractere = palavra.find(aspas if aspas in palavra[caractere] else aspasSimples) + 1
-        ignore = False
-        count -= 1
-
-    # Comentarios - Controle
-    if caractere+2 <= len(palavra):
-        if palavra[caractere:caractere+2] == comentario:
-            comment = True
-            escreveLog(linha, 'DELIMITADOR', comentario)
-            return
-        if palavra[caractere:caractere+2] == comentario_inicio:
-            ignore = True
-            escreveLog(linha, 'DELIMITADOR', comentario_inicio)
-            return
-
+        # if indice == len(conteudo) and len(aux) != 0:
+        #    print('ERRO')
+                        
 
 def analisador(codigo):
-    global ignore
-    global comment
-    global count
-
     for linha, conteudo in enumerate(codigo):
+        deep_analyzer(linha, conteudo)
+
+
+"""
         palavras = conteudo.split(' ')
         palavras = [palavras.strip() for palavras in palavras]   # retirando os espaços do inicio e fim de cada palavra
         
@@ -121,3 +100,4 @@ def analisador(codigo):
                         if comment:
                             comment = False   # Controle de comentario de uma linha dentro do deep_analyzer
                             break
+"""
