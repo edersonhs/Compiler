@@ -1,2 +1,10 @@
-print("teste");//teste
-10;test=50,50
+print; /* ("teste");
+10;
+sfd
+sdf  bgl ignorado
+sd
+fsd
+fsdfsdfsdftest= 50,50
+*/
+
+teste = 'nada'

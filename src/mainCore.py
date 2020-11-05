@@ -29,7 +29,7 @@ def menu(*opcoes):
         if opcao == 1:
             system('cls' if name == 'nt' else 'clear')
             nome_arquivo = './archives/codigo.txt'
-            criarArquivo('./archives/log.txt')  # Reescrevendo um arquivo de log vazio para não concatenar com o log anterior
+            criarArquivo('./archives/log.txt')  # Reescrevendo um arquivo de log vazio para não concatenar com o log da ultima execução
 
             if arquivoExiste(nome_arquivo) and arquivoExiste(nome_arquivo_log):
                 print(f'{colors["verde"]}{nome_arquivo} e {nome_arquivo_log} encontrados com sucesso!\n')
