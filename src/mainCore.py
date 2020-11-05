@@ -33,7 +33,7 @@ def menu(*opcoes):
 
             if arquivoExiste(nome_arquivo) and arquivoExiste(nome_arquivo_log):
                 print(f'{colors["verde"]}{nome_arquivo} e {nome_arquivo_log} encontrados com sucesso!\n')
-                analisador([word for word in lerArquivo(nome_arquivo)])
+                analisador([word for word in lerArquivo(nome_arquivo)])   # Passando cada linha do código.txt para o analisador
                 print(f'\n{colors["branco"]}LOG DO ANALISADOR LÉXICO:')
                 mostraLog()
                 input(f'\n{colors["branco"]}Pressione ENTER para continuar...')

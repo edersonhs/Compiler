@@ -1,3 +1,2 @@
-10temp = 'aspasSimples' test
-variavel ="teste"print()
-
+print("teste");//teste
+10;test=50,50

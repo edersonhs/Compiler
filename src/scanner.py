@@ -16,88 +16,70 @@ def deep_analyzer(linha, conteudo):   # Analisa caractere por caractere
     indice = 0
 
     while indice < len(conteudo):
-        if conteudo[indice].isalpha() or conteudo[indice].isdigit():
+        if conteudo[indice] == ',' and conteudo[indice-1].isdigit() and conteudo[indice+1].isdigit() or conteudo[indice].isalpha() or conteudo[indice].isdigit() or conteudo[indice] == '_':
             aux += conteudo[indice]
         else:
             try:
-                inteiro = int(aux)
+                aux = int(aux)
                 escreveLog(linha, 'INTEIRO', aux)
+                aux = ''
             except:
-                try:
-                    real = float(aux)
-                    escreveLog(linha, 'REAL', aux)
-                except:
-                    if aux in palavras_reservadas:
-                        escreveLog(linha, 'PALAVRA_RESERVADA', aux)
-                        aux = ''
-                    else:
-                        if len(aux) != 0:
-                            escreveLog(linha, 'IDENTIFICADOR', aux)
-                            aux = ''
-                    if conteudo[indice:indice+2] in operadores:
-                        escreveLog(linha, 'OPERADOR', conteudo[indice:indice+2])
-                        indice += 2
-                        continue
-                    elif conteudo[indice] in operadores and conteudo[indice:indice+2] not in delimitadores:
-                        escreveLog(linha, 'OPERADOR', conteudo[indice])
-                    if conteudo[indice:indice+2] in delimitadores:
-                        escreveLog(linha, 'DELIMITADOR', conteudo[indice:indice+2])
-                        indice += 2
-                        continue
-                    elif conteudo[indice] in delimitadores and conteudo[indice:indice+2] not in operadores:
-                        escreveLog(linha, 'DELIMITADOR', conteudo[indice])
+                pass
+            try:
+                if aux.count(',') == 1:
+                    aux = aux.replace(',', '.')
+                aux = float(aux)
+                escreveLog(linha, 'REAL', aux)
+                aux = ''
+            except:
+                pass
+            if aux in palavras_reservadas:
+                escreveLog(linha, 'PALAVRA_RESERVADA', aux)
+                aux = ''
+            else:
+                if len(aux) != 0:
+                    escreveLog(linha, 'IDENTIFICADOR', aux)
+                    aux = ''
+            if conteudo[indice:indice+2] in operadores:
+                escreveLog(linha, 'OPERADOR', conteudo[indice:indice+2])
+                indice += 2
+                if conteudo[indice:indice-2] == comentario:
+                    break
+                continue
+            elif conteudo[indice] in operadores and conteudo[indice:indice+2] not in delimitadores:
+                escreveLog(linha, 'OPERADOR', conteudo[indice])
+            if conteudo[indice:indice+2] in delimitadores:
+                escreveLog(linha, 'DELIMITADOR', conteudo[indice:indice+2])
+                indice += 2
+                continue
+            elif conteudo[indice] in delimitadores and conteudo[indice:indice+2] not in operadores:
+                escreveLog(linha, 'DELIMITADOR', conteudo[indice])
         indice += 1
-
-        # if indice == len(conteudo) and len(aux) != 0:
-        #    print('ERRO')
+    
+    if indice == len(conteudo) and len(aux) != 0:
+        try:
+            aux = int(aux)
+            escreveLog(linha, 'INTEIRO', aux)
+            aux = ''
+        except:
+            pass
+        try:
+            if aux.count(',') == 1:
+                aux = aux.replace(',', '.')
+            aux = float(aux)
+            escreveLog(linha, 'REAL', aux)
+            aux = ''
+        except:
+            pass
+        if aux in palavras_reservadas:
+            escreveLog(linha, 'PALAVRA_RESERVADA', aux)
+            aux = ''
+        else:
+            if len(aux) != 0:
+                escreveLog(linha, 'IDENTIFICADOR', aux)
+                aux = ''
                         
 
 def analisador(codigo):
     for linha, conteudo in enumerate(codigo):
         deep_analyzer(linha, conteudo)
-
-
-"""
-        palavras = conteudo.split(' ')
-        palavras = [palavras.strip() for palavras in palavras]   # retirando os espaços do inicio e fim de cada palavra
-        
-        for palavra in palavras:
-            if type(palavra) == str and comentario_fim in palavra:   # Fim comentario de mais de uma linha
-                ignore = False
-            
-            # ASPAS - Controle
-            if (palavra == aspas and count == 0) or (palavra == aspasSimples and count == 0):
-                count += 1
-                ignore = True
-            elif (palavra == aspas and count == 1) or (palavra == aspasSimples and count == 1):
-                escreveLog(linha, 'DELIMITADOR', palavra)
-                ignore = False
-                count -= 1
-
-            if not ignore:
-                try:
-                    palavra = int(palavra)
-                    escreveLog(linha, 'INTEIRO', palavra)
-                except Exception:
-                    try:
-                        palavra = float(palavra)
-                        escreveLog(linha, 'REAL', palavra)
-                    except Exception:
-                        pass
-                if type(palavra) == str:
-                    if palavra in palavras_reservadas:
-                        escreveLog(linha, 'PALAVRA_RESERVADA', palavra)
-                    if palavra in operadores:
-                        escreveLog(linha, 'OPERADOR', palavra)
-                    if palavra in delimitadores:
-                        escreveLog(linha, 'DELIMITADOR', palavra)
-                    if palavra == comentario:   # comentario de uma linha
-                        break
-                    if palavra == comentario_inicio:   # Comentario de mais de uma linha
-                        ignore = True
-                    if len(palavra) != 0 and palavra not in palavras_reservadas and palavra not in delimitadores and palavra not in operadores:   # Identificador
-                        deep_analyzer(linha, palavra)
-                        if comment:
-                            comment = False   # Controle de comentario de uma linha dentro do deep_analyzer
-                            break
-"""
