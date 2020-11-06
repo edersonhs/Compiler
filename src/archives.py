@@ -20,9 +20,7 @@ def criarArquivo(nome):
         a.close()
     except Exception:
         if nome == './archives/log.txt':
-            print(f'{colors["vermelho"]}Houve um ERRO ao criar o arquivo {nome}.')
-        elif nome == './archives/codigo.txt':
-            print(f'{colors["vermelho"]}Houve um ERRO na criação do arquivo {nome}!')
+            print(f'{colors["vermelho"]}Houve um ERRO ao criar o arquivo {nome.replace("./archives/", "")}.')
     else:
         if nome == './archives/log.txt':
             pass

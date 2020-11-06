@@ -18,12 +18,13 @@ def menu(*opcoes):
             while True:
                 opcao = int(input(f'{colors["amarelo"]}>>> {colors["branco"]}Sua opção: '))
                 if opcao > len(list(opcoes)) or opcao <= 0:
-                    input(f'{colors["vermelho"]}ERRO: opção invalida. Digite uma opção existente!\n{colors["branco"]}'
+                    input(f'\n{colors["vermelho"]}ERRO: Opção invalida. Digite uma opção existente!\n{colors["branco"]}'
                           f'Pressione enter para tentar novamente...')
+                    break
                 else:
                     break
         except Exception:
-            input(f'{colors["vermelho"]}ERRO: opção invalida. Digite um número valido!\n{colors["branco"]}Pressione '
+            input(f'\n{colors["vermelho"]}ERRO: Opção invalida. Digite um número valido!\n{colors["branco"]}Pressione '
                   f'enter para tentar novamente...')
 
         if opcao == 1:
@@ -32,23 +33,26 @@ def menu(*opcoes):
             criarArquivo('./archives/log.txt')  # Reescrevendo um arquivo de log vazio para não concatenar com o log da ultima execução
 
             if arquivoExiste(nome_arquivo) and arquivoExiste(nome_arquivo_log):
-                print(f'{colors["verde"]}{nome_arquivo} e {nome_arquivo_log} encontrados com sucesso!\n')
+                print(f'{colors["verde"]}{nome_arquivo.replace("./archives/", "")} e {nome_arquivo_log.replace("./archives/", "")} encontrados com sucesso!')
                 analisador([word for word in lerArquivo(nome_arquivo)])   # Passando cada linha do código.txt para o analisador
                 print(f'\n{colors["branco"]}LOG DO ANALISADOR LÉXICO:')
-                mostraLog()
+                if len([word for word in lerArquivo(nome_arquivo)]) == 0:
+                    print(f'{colors["vermelho"]}>>> O arquivo esta vazio.')
+                else:
+                    mostraLog()
                 input(f'\n{colors["branco"]}Pressione ENTER para continuar...')
             else:
-                print(f'{colors["vermelho"]}ERRO: arquivos não encontrados.')
+                print(f'{colors["vermelho"]}ERRO: arquivos não encontrados.\n')
                 while True:
                     try:
                         opcao_temp = str(input(f'{colors["branco"]}Deseja criar o arquivo? [S/N] ')).upper()[0]
+                        system('cls' if name == 'nt' else 'clear')
                         
                         if opcao_temp == 'S':
-                            print('\n')
                             criarArquivo(nome_arquivo)
                             input(f'{colors["branco"]}Pressione enter para continuar...')
                         else:
-                            print(f'\n{colors["verde"]}Beleza! Retornando ao menu principal...')
+                            print(f'{colors["verde"]}Beleza! Retornando ao menu principal...')
                             sleep(2)
                     except Exception:
                         print(f'{colors["vermelho"]}ERRO: opção invalida. Digite uma opção valida!')
