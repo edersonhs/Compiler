@@ -8,7 +8,7 @@ quoteCount = 0   # Controle das aspas
 
 
 def deep_analyzer(linha, conteudo):   # Analisa caractere por caractere
-    global quoteCount
+    global quoteCount   # Contador de controle das aspas
     global quote   # Aspas
     global comment
 
@@ -57,7 +57,10 @@ def deep_analyzer(linha, conteudo):   # Analisa caractere por caractere
                     aux = ''
                 else:
                     if len(aux) != 0:
-                        escreveLog(linha, 'IDENTIFICADOR', aux)
+                        if aux[0].isdigit():
+                            escreveLog(linha, 'IDENTIFICADOR', aux, 'O primeiro caractere de um identificador não pode ser um número.')
+                        else:
+                            escreveLog(linha, 'IDENTIFICADOR', aux)
                         aux = ''
                 if conteudo[indice:indice+2] in operadores:
                     escreveLog(linha, 'OPERADOR', conteudo[indice:indice+2])
@@ -74,6 +77,9 @@ def deep_analyzer(linha, conteudo):   # Analisa caractere por caractere
                         continue
                 elif conteudo[indice] in delimitadores and conteudo[indice:indice+2] not in operadores:
                     escreveLog(linha, 'DELIMITADOR', conteudo[indice])
+                
+                if not conteudo[indice].isdigit() and not conteudo[indice].isalpha() and conteudo[indice] not in operadores and conteudo[indice] not in delimitadores and not conteudo[indice].isspace():
+                    escreveLog(linha, 'CARACTERE_INVALIDO', conteudo[indice], 'Caractere não encontrado no alfabeto da linguagem')
         indice += 1
     
     if indice == len(conteudo) and len(aux) != 0 and not comment:

@@ -18,7 +18,7 @@ def escreveLog(linha, tipo, conteudo, motivo=''):
             if len(motivo) == 0:
                 log.writelines(f'{text:<91} {colors["verde"]} OK\n')
             else:
-                log.writelines(f'{text:<98} {colors["vermelho"]}ERRO: {colors["branco"]}{motivo}\n')
+                log.writelines(f'{text:<91} {colors["vermelho"]}ERRO: {colors["branco"]}{motivo}\n')
         except Exception:
              print(f'{colors["vermelho"]}Houve um ERRO ao escrever os dados no arquivo de Log!')
         else:

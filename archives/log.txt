@@ -1,8 +1,23 @@
 [1;33mLINHA 1: [1;37m([1;32mPALAVRA_RESERVADA[1;37m: [1;35mprint[1;37m)               [1;32m OK
+[1;33mLINHA 1: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m([1;37m)                         [1;32m OK
+[1;33mLINHA 1: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m"[1;37m)                         [1;32m OK
+[1;33mLINHA 1: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m"[1;37m)                         [1;32m OK
+[1;33mLINHA 1: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m)[1;37m)                         [1;32m OK
 [1;33mLINHA 1: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m;[1;37m)                         [1;32m OK
-[1;33mLINHA 1: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m/*[1;37m)                        [1;32m OK
-[1;33mLINHA 8: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m*/[1;37m)                        [1;32m OK
-[1;33mLINHA 10: [1;37m([1;32mIDENTIFICADOR[1;37m: [1;35mteste[1;37m)                  [1;32m OK
-[1;33mLINHA 10: [1;37m([1;32mOPERADOR[1;37m: [1;35m=[1;37m)                           [1;32m OK
-[1;33mLINHA 10: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m'[1;37m)                        [1;32m OK
-[1;33mLINHA 10: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m'[1;37m)                        [1;32m OK
+[1;33mLINHA 3: [1;37m([1;32mCARACTERE_INVALIDO[1;37m: [1;35m@[1;37m)                  [1;31mERRO: [1;37mCaractere não encontrado no alfabeto da linguagem
+[1;33mLINHA 3: [1;37m([1;32mIDENTIFICADOR[1;37m: [1;35mvar[1;37m)                     [1;32m OK
+[1;33mLINHA 3: [1;37m([1;32mOPERADOR[1;37m: [1;35m=[1;37m)                            [1;32m OK
+[1;33mLINHA 3: [1;37m([1;32mINTEIRO[1;37m: [1;35m10[1;37m)                            [1;32m OK
+[1;33mLINHA 3: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m//[1;37m)                        [1;32m OK
+[1;33mLINHA 4: [1;37m([1;32mIDENTIFICADOR[1;37m: [1;35m34var[1;37m)                   [1;31mERRO: [1;37mO primeiro caractere de um identificador não pode ser um número.
+[1;33mLINHA 4: [1;37m([1;32mOPERADOR[1;37m: [1;35m=[1;37m)                            [1;32m OK
+[1;33mLINHA 4: [1;37m([1;32mREAL[1;37m: [1;35m10.5[1;37m)                             [1;32m OK
+[1;33mLINHA 4: [1;37m([1;32mOPERADOR[1;37m: [1;35m==[1;37m)                           [1;32m OK
+[1;33mLINHA 4: [1;37m([1;32mINTEIRO[1;37m: [1;35m5[1;37m)                             [1;32m OK
+[1;33mLINHA 6: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m/*[1;37m)                        [1;32m OK
+[1;33mLINHA 9: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m*/[1;37m)                        [1;32m OK
+[1;33mLINHA 11: [1;37m([1;32mIDENTIFICADOR[1;37m: [1;35mteste[1;37m)                  [1;32m OK
+[1;33mLINHA 11: [1;37m([1;32mOPERADOR[1;37m: [1;35m*=[1;37m)                          [1;32m OK
+[1;33mLINHA 11: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m'[1;37m)                        [1;32m OK
+[1;33mLINHA 11: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m'[1;37m)                        [1;32m OK
+[1;33mLINHA 11: [1;37m([1;32mDELIMITADOR[1;37m: [1;35m;[1;37m)                        [1;32m OK

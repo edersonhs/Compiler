@@ -1,10 +1,11 @@
-print; /* ("teste");
-10;
-sfd
-sdf  bgl ignorado
-sd
-fsd
-fsdfsdfsdftest= 50,50
+print ("String a ser ignorada");
+
+@var=10//Comentario de uma linha
+34var=10,50==5
+
+/*bloco de 
+comentario a 
+ser ignorado
 */
 
-teste = 'nada'
+teste*='test';
