@@ -13,9 +13,9 @@ def escreveLog(linha, tipo, conteudo, motivo=''):
     else:
         try:
 
-            text = (f'{colors["amarelo"]}LINHA {linha+1}: {colors["branco"]}('
+            text = (f'{colors["branco"]}LINHA {linha+1}: {colors["branco"]}('
                     f'{colors["verde"] if len(motivo) == 0 else colors["vermelho"]}{tipo}'
-                    f'{colors["branco"]}: {colors["roxo"]}{conteudo}{colors["branco"]})')
+                    f'{colors["branco"]}: {colors["branco"]}{conteudo}{colors["branco"]})')
 
             if len(motivo) == 0:
                 log.writelines(f'{text:<91} {colors["verde"]} OK\n')
