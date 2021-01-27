@@ -1,11 +1,14 @@
-print ("String a ser ignorada");
+print ("Ignored Content");
 
-@var=10//Comentario de uma linha
-34var=10,50==5
+@var = 10 //One line comment
 
-/*bloco de 
-comentario a 
-ser ignorado
+34var = 10
+
+print(50 == 5)
+
+/*
+Comment block
+to be ignored
 */
 
-teste*='test';
+test *= 'Ignored Content';
