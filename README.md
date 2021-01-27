@@ -24,6 +24,11 @@ test *= 'Ignored Content';
 
 
 ## Example Language
+| **Rules**                                                    | **Example**                             |
+|--------------------------------------------------------------|-----------------------------------------|
+| Identifier cannot start with number                          | 2identifier, 13number, 34var            |
+| Only characters defined in the language alphabet are allowed | (A...Z), (1...9), operators, delimiters |
+
 | **Key_Worlds** | **Operators** | **Delimiters** |
 |----------------|---------------|----------------|
 |       int      |       +       |        ;       |
