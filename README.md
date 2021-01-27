@@ -3,7 +3,7 @@ Lexical analyzer developed in the discipline of Compilers during the Computer Sc
 
 ### Example Code
 ```
-1  - print ("Ignored Content");
+1  - print("Ignored Content");
 2  - 
 3  - @var = 10 //One line comment
 4  - 
