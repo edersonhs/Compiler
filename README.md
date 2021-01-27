@@ -15,8 +15,8 @@ Lexical analyzer developed in the discipline of Compilers during the Computer Sc
 10 - Comment block
 11 - to be ignored
 12 - */
-
-test *= 'Ignored Content';
+13 - 
+14 - test *= 'Ignored Content';
 ```
 
  ### Output Preview:
