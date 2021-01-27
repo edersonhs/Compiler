@@ -16,7 +16,7 @@ Lexical analyzer developed in the discipline of Compilers during the Computer Sc
 11 - to be ignored
 12 - */
 
-teste *= 'Ignored Content';
+test *= 'Ignored Content';
 ```
 
  ### Output Preview:
