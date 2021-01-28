@@ -29,7 +29,7 @@ Lexical analyzer developed in the discipline of Compilers during the Computer Sc
 | Identifier cannot start with number                          | 2identifier, 13number, 34var            |
 | Only characters defined in the language alphabet are allowed | (A...Z), (a...z) (0...9), operators, delimiters |
 
-| **Key_Worlds** | **Operators** | **Delimiters** |
+| **Key_Words** | **Operators** | **Delimiters** |
 |----------------|---------------|----------------|
 |       int      |       +       |        ;       |
 |      float     |       -       |        {       |
